@@ -13,7 +13,7 @@ const Standings = () => {
 
     const winners = async () => {
       try {
-        const response = await fetch(`http://localhost:5001/racewinner/${year}`)
+        const response = await fetch(`${import.meta.env.VITE_URL}/racewinner/${year}`)
         const data = await response.json()
 
         if (Array.isArray(data)) {

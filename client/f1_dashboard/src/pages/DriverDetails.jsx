@@ -12,7 +12,7 @@ const DriverDetails = () => {
     if(!year || String(year).length !== 4) return;
     const getTeamHistory = async () => {
       if(!year || !teamId) return;
-      const response = await fetch(`http://localhost:5001/driverdetail/${year}/${teamId}`)
+      const response = await fetch(`${import.meta.env.VITE_URL}/driverdetail/${year}/${teamId}`)
       const data = await response.json()
       setteamData(data)
     }

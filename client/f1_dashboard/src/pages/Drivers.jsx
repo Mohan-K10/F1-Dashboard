@@ -36,7 +36,7 @@ const Drivers = () => {
   useEffect(() => {
     const getdrivers = async () => {
       try {
-        const response = await fetch("http://localhost:5001/drivers");
+        const response = await fetch(`${import.meta.env.VITE_URL}/drivers`);
         const data = await response.json()
         setdrivers(data)
       } catch (error) {

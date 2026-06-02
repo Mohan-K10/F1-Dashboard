@@ -24,7 +24,7 @@ const DriverDetails = () => {
   useEffect(() => {
     if (!year || String(year).length !== 4) return
     const getTeamHistory = async () => {
-      const response = await fetch(`http://localhost:5001/driverposition/${year}`)
+      const response = await fetch(`${import.meta.env.VITE_URL}/driverposition/${year}`)
       const data = await response.json()
       setteamData(data)
     }
@@ -61,7 +61,7 @@ const DriverDetails = () => {
         </div>
       </div>
 
-      {/* Standings Card */}
+     
       <div className='flex flex-col items-center gap-6 py-10'>
         {String(year).length === 4 && (
           <div
