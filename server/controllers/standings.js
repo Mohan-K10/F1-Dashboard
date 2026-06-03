@@ -1,6 +1,9 @@
 export const  standings = async(req ,res)=> {
     try {
-        const driverstandings = await fetch('https://api.openf1.org/v1/drivers?session_key=9158')
+        const apiBase = process.env.OPENF1_API
+        const sessionKey = process.env.SESSION_KEY
+
+        const driverstandings = await fetch(`${apiBase}/v1/drivers?session_key=${sessionKey}`)
         const data = await driverstandings.json()
         res.json(data)
     } catch (error) {
