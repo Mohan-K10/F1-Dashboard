@@ -25,3 +25,4 @@ dist-ssr
 .env
 server/.env
 client/.env
+client/f1_dashboard/.env
