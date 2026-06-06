@@ -8,6 +8,7 @@ import Seasons from './pages/Seasons'
 import Standings from './pages/Standings'
 import DriverDetails from './pages/DriverDetails'
 import Navbar from './components/Navbar'
+import Compare from './pages/Compare'
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
           <Route path='/seasons' element={<Seasons />} />
           <Route path='/standings' element={<Standings />} />
           <Route path='/driverdetails/:teamId' element={<DriverDetails/>}/>
+          <Route path='/compare/:driver1/:driver2' element={<Compare/>}/>
         </Routes>
    
 
