@@ -56,10 +56,14 @@ const Drivers = () => {
     const getdrivers = async () => {
       try {
         const response = await fetch(`${import.meta.env.VITE_URL}/drivers`);
+        if (!response.ok) {
+          throw new Error('Failed to load drivers')
+        }
         const data = await response.json()
-        setdrivers(data)
+        setdrivers(Array.isArray(data) ? data : [])
       } catch (error) {
         console.log(error)
+        setdrivers([])
       }
     }
     getdrivers()
