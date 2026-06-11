@@ -1,12 +1,11 @@
 export const raceWinner = async (req ,res) => {
     try {
-        const jolpi_api = process.env.JOLPI_API
         const { year } = req.params
         if(!year) {
             return res.json({message : "Year is required"})
         }
 
-        const response = await fetch(`${jolpi_api}/ergast/f1/${year}/results/1.json`)
+        const response = await fetch(`https://api.jolpi.ca/ergast/f1/${year}/results/1.json`)
 
         const data = await response.json()
 

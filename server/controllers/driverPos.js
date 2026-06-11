@@ -2,8 +2,7 @@ export const driverPosition = async (req ,res)=> {
     const { year } = req.params
     if(!year) return
     try {
-        const jolpi_api = process.env.JOLPI_API
-        const response = await fetch(`${jolpi_api}/ergast/f1/${year}/constructorstandings.json`)
+        const response = await fetch(`https://api.jolpi.ca/ergast/f1/${year}/constructorstandings.json`)
         const data = await response.json()
         res.json(data)
     } catch (error) {
