@@ -77,7 +77,7 @@ npm install
 Create a `.env` file in the `server/` folder:
 
 ```
-PORT=5000
+PORT=5001
 ```
 
 Start the server:
