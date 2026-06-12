@@ -4,8 +4,8 @@ import Seasons from '../pages/Seasons'
 
 const Dashboard = () => {
   return (
-    <div className='bg-[#131318] min-h-screen flex justify-center items-center'>
-        <div className='min-h-screen w-[90vw] mx-auto rounded-md '>
+    <div className='min-h-screen bg-[#131318] px-4 py-4 text-white sm:px-6 lg:px-8'>
+        <div className='mx-auto min-h-screen w-full max-w-7xl'>
             <Navbar/>
             <Seasons/>
             

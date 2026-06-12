@@ -4,10 +4,10 @@ import { useState, useEffect } from 'react'
 const Standings = () => {
   const [year, setYear] = useState('')
   const [raceWinner, setRaceWinner] = useState([])
+  const displayRaceWinner = year ? raceWinner : []
 
   useEffect(() => {
     if (!year) {
-      setRaceWinner([])
       return
     }
 
@@ -30,7 +30,7 @@ const Standings = () => {
   }, [year])
 
   return (
-    <div className='min-h-screen bg-[#131318] px-6 py-10 text-white'>
+    <div className='min-h-screen bg-[#131318] px-4 py-6 text-white sm:px-6 sm:py-10'>
       <div className='mx-auto max-w-6xl'>
         <div className='mb-6 flex flex-col gap-4 md:flex-row md:items-end md:justify-between'>
           <div>
@@ -43,7 +43,7 @@ const Standings = () => {
             </p>
           </div>
 
-          <div className='flex items-center gap-3'>
+          <div className='flex flex-col gap-3 sm:flex-row sm:items-center'>
             <div className='rounded-xl border border-zinc-800 bg-[#0a0a0f] px-4 py-3'>
               <label className='mb-2 block text-xs font-semibold uppercase tracking-wide text-zinc-500'>
                 Season Year
@@ -66,16 +66,17 @@ const Standings = () => {
           </div>
         </div>
 
-        <div className='overflow-hidden rounded-xl border border-zinc-800'>
-          <div className='grid grid-cols-[0.7fr_2fr_1.6fr_1.3fr] bg-zinc-900 px-6 py-4 text-sm font-semibold uppercase tracking-wide text-zinc-400'>
+        <div className='overflow-x-auto border-y border-zinc-800 sm:rounded-xl sm:border'>
+          <div className='min-w-[720px]'>
+            <div className='grid grid-cols-[0.7fr_2fr_1.6fr_1.3fr] bg-zinc-900 px-4 py-4 text-sm font-semibold uppercase tracking-wide text-zinc-400 sm:px-6'>
             <p>Round</p>
             <p>Grand Prix</p>
             <p>Winner</p>
             <p>Team</p>
-          </div>
+            </div>
 
-          {raceWinner.length > 0 ? (
-            raceWinner.map((champ) => (
+          {displayRaceWinner.length > 0 ? (
+            displayRaceWinner.map((champ) => (
               <div
                 key={champ.round}
                 className='grid grid-cols-[0.7fr_2fr_1.6fr_1.3fr] items-center border-t border-zinc-800 bg-[#0a0a0f] px-6 py-4'
@@ -93,6 +94,7 @@ const Standings = () => {
                 : 'Enter a season year to load the race winners table.'}
             </div>
           )}
+          </div>
         </div>
       </div>
     </div>
